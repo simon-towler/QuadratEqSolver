@@ -20,10 +20,11 @@ public class QuadratEqSolver {
             and there are the correct number, 1-4,
             instantiate an Equation from them
         */
-        //TODO: remove
+
         try {        
             for(int arg : parseArgs(args)) {
                 System.out.println(String.valueOf(arg));
+                QuadratEq equationToSolve = new QuadratEq(parseArgs(args));
             }
         }
         catch(InvalidArgumentsException e) {
@@ -50,14 +51,6 @@ public class QuadratEqSolver {
                     throw new InvalidArgumentsException("An input arg was not a number in the right format");
             }            
         }
-        
         return parsedArgs;
-        
     }
 }
-/*
-
-class Equation {
-    int xSquaredCoeficientA, xCoeficientB, constantTermC, EqualityY;
-}
-*/
