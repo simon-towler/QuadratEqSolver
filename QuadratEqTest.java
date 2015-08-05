@@ -5,6 +5,7 @@
  */
 package QuadratEqSolver;
 
+import java.math.BigDecimal;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -24,5 +25,22 @@ public class QuadratEqTest {
         assertEquals(testCaseArgs[1], TestQuadratEq.xCoeficientB);
         assertEquals(testCaseArgs[2], TestQuadratEq.constantTermC);
         assertEquals(testCaseArgs[3], TestQuadratEq.equalityY);
+    }
+    
+    @Test
+    public void testSolveForX() {
+        int[] testCaseArgs = {6,11,-35,0};
+        
+        QuadratEq TestQuadratEq = new QuadratEq(testCaseArgs);
+        
+        try {
+            TestQuadratEq.solveForX();
+        }
+        catch(InvalidArgumentsException e) {
+                System.out.println("testSolveForX raised InvalidArgumentsException" + e);
+        }
+
+        assertTrue(TestQuadratEq.xPlus.compareTo(new BigDecimal(-3.5, TestQuadratEq.QuadratEqMathContext)) == 0);
+        assertTrue(TestQuadratEq.xMinus.compareTo(new BigDecimal(5.0/3.0, TestQuadratEq.QuadratEqMathContext)) == 0);
     }
 }

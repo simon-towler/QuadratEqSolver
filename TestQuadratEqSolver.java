@@ -14,7 +14,7 @@ public class TestQuadratEqSolver {
        String[] args;
        String[] result;
        
-       args = new String[]{"1","2","3","4"};	
+       args = new String[]{"6","11","-35","0"};	
        result = AbstractMainTests.executeMain("QuadratEqSolver.QuadratEqSolver", args);
        assertArrayEquals(args, result);
        

@@ -21,19 +21,20 @@ public class QuadratEqSolver {
             instantiate an Equation from them
         */
 
-        try {        
+        try { 
             for(int arg : parseArgs(args)) {
                 System.out.println(String.valueOf(arg));
-                QuadratEq equationToSolve = new QuadratEq(parseArgs(args));
             }
+            QuadratEq equationToSolve = new QuadratEq(parseArgs(args));
+            equationToSolve.solveForX();
         }
         catch(InvalidArgumentsException e) {
             System.out.println(e.getMessage());
             //program ends here
-        }
-        
+        } 
     }
     
+    //TODO: accept non-integer input
     static int[] parseArgs(String[] argsToParse) throws InvalidArgumentsException {
         
         int[] parsedArgs = new int[maxArgs];
