@@ -7,6 +7,7 @@ package QuadratEqSolver;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
+import java.util.Objects;
 
 /**
  *
@@ -53,4 +54,53 @@ class QuadratEq {
         BigDecimal posNumerator = (b.add(root)).negate();
         xPlus = posNumerator.divide(denominator, QuadratEqMathContext);
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 61 * hash + this.xSquaredCoeficientA;
+        hash = 61 * hash + this.xCoeficientB;
+        hash = 61 * hash + this.constantTermC;
+        hash = 61 * hash + this.equalityY;
+        hash = 61 * hash + Objects.hashCode(this.QuadratEqMathContext);
+        hash = 61 * hash + Objects.hashCode(this.xPlus);
+        hash = 61 * hash + Objects.hashCode(this.xMinus);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final QuadratEq other = (QuadratEq) obj;
+        if (this.xSquaredCoeficientA != other.xSquaredCoeficientA) {
+            return false;
+        }
+        if (this.xCoeficientB != other.xCoeficientB) {
+            return false;
+        }
+        if (this.constantTermC != other.constantTermC) {
+            return false;
+        }
+        if (this.equalityY != other.equalityY) {
+            return false;
+        }
+        if (!Objects.equals(this.QuadratEqMathContext, other.QuadratEqMathContext)) {
+            return false;
+        }
+        if (!Objects.equals(this.xPlus, other.xPlus)) {
+            return false;
+        }
+        if (!Objects.equals(this.xMinus, other.xMinus)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
+    
 }
